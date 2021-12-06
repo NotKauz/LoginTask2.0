@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Website</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../CSS-Files/Login.css">
+    </head>
+
+    <body>
+        <form>
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <input type="button" onclick="login(this.form)" value="Login">
+            </div>
+        </form>
+        
+        <script language="javascript">
+            var login_attempts = 3;
+            function login(form){
+                if(form.uname.value == "admin" && form.psw.value == "admin") {
+                    window.open('Admin.html')
+                }
+                else{
+                    if(login_attempts == 0){
+                        alert("No Login Attempts available");
+                    }
+                    else{
+                        login_attempts--;
+                        alert("The username and password you entered are incorrect. "+login_attempts+" tries remaining.")
+                        if(login_attempts == 0){
+                            form.uname.style.display = "none";
+                            form.psw.style.display = "none";
+                            form.login.style.display = "none";
+                        }
+                    }
+                    
+                }
+            }
+        </script>
+    </body>
+</html>

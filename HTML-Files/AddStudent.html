@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS-Files/AddStudent.css">
+</head>
+<body>
+    <div class="container">
+        <div id="data">
+            <p><b>Student ID: </b>
+            <input type="number" id="idstudent" placeholder="Enter Student ID" required>
+            </p><p><b>First Name:</b> 
+            <input type="text" id="First_Name" placeholder="Enter First Name" required>
+            <b>Last Name:</b> 
+            <input type="text" id="Last_Name" placeholder="Enter Last Name" required>
+            </p><p><b>Date of Birth:</b>
+            <input type="date" id="Student_DOB"
+            min="1961-01-01" max="2004-01-01">
+            </p>
+            <p><b>Gender:</b>
+            <input type="radio" id="male" name="Student_gender" value="male" />male
+            <input type="radio" id="female" name="Student_gender" value="female" />female
+            <input type="radio" id="diverse" name="Student_gender" value="diverse" />diverse
+            </p>
+            <p><b>Departament: </b>
+            <select id="Student_dropdown">
+                <option value="Departament1">Department1</option>
+                <option value="Departament2">Department2</option>
+                <option value="Departament3">Department3</option>
+            </select>
+        </p>
+            <p><b>Email Adress: </b>
+            <input type="text" id="Student_Email_ID" placeholder="Enter Email adress" required/>
+            </p>
+            <p><b>Joining Day: </b>
+            <input type="date" id="Student_Join_Day" name="JoinDay"
+                min="2015-01-01" max="2021-12-31">
+            </p>
+            <button>Add</button>
+        </div>
+
+        <p>Filter by Departament: 
+        <select id="departementsDropdown" oninput="filterTable()">
+            <option>All</option>
+            <option>Departament1</option>
+            <option>Departament2</option>
+            <option>Departament3</option>
+        </select>
+        </p>
+        <p> Filter by Semester: 
+        <select id="dateDropdown" oninput="filterTableDate()">
+            <option>All</option>
+            <option>Winter</option>
+            <option>Summer</option>
+        </select>
+        </p>
+        <table id="TableStudent">
+            <tr>
+                <th>StudentID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Date of Birth</th>
+                <th>Departament</th>
+                <th>Email</th>
+                <th>Join Day</th>
+            </tr>
+        </table>
+    </div>
+    <script src="../JS-Files/script.js"></script>
+</body>
+</html>

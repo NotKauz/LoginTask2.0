@@ -1,0 +1,52 @@
+#data{
+    background-color:azure;
+    color:black;
+    display: block;
+}
+
+input[type=text], input[type=number], input[type=date], #Student_dropdown {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button{
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+#TableStudent{
+    background-color: beige;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+ }
+ 
+ #TableStudent td, #Students th{
+     border: 1px solid #ddd;
+     padding: 8px;
+ }
+ 
+ #TableStudent tr:nth-child(even){
+     background-color: #f2f2f2;
+ }
+ 
+ #TableStudent tr:hover{
+     background-color: #ddd;
+ }
+ 
+ #TableStudent th{
+   padding-top: 12px;
+   padding-bottom: 12px;
+   text-align: left;
+   background-color: #04AA6D;
+   color: white;
+ }

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Admin Page</title>
+        <link rel="stylesheet" href="../CSS-Files/Admin.css">
+    </head>
+
+    <body>
+        <!--EVERYTHING ABOUT THE STUDENT-->
+        <div id="toggleStudent">
+            <input type="button" value="Students"/>
+        </div>
+
+        <div id="divStudentButtons">
+            <div id="addStudentButton">
+                <input type="button" onclick="redirect()" value="Add Student"/>
+            </div>
+            <input type="button" value="Update Student"/>
+            <input type="button" value="Delete Student"/>
+        </div>  
+
+        <!--EVERYTHING ABOUT THE STAFF-->
+        <div id="toggleStaff">
+            <input type="button" value="Staff"/>
+        </div>
+        <div id="divStaffButtons">
+            <div id="addStaffButton">
+                <input type="button" value="Add Staff"/>
+            </div>
+            <input type="button" value="Update Staff"/>
+            <input type="button" value="Delete Staff"/>
+
+            <p><b>Department</b> <select name="Departement_dropdown">
+                <option value="D1">Default</option>
+                <option value="D2">Department1</option>
+                <option value="D3">Department2</option>
+                <option value="D4">Department3</option>
+                <option value="D5">Department4</option>
+            </select>
+        
+            <b>Semester</b>
+            <select name="Semester_dropdown">
+                <option value="D1">Winter</option>
+                <option value="D2">Summer</option>
+            </select></p>
+
+            <table id="Staff">
+                <tr>
+                    <th>Staff ID</th>
+                    <th>First_Name</th>
+                    <th>Last_Name</th>
+                    <th>DOB</th>
+                    <th>Gender</th>
+                    <th>Department</th>
+                    <th>Email_ID</th>
+                    <th>Joining Day</th>
+                </tr>
+            </table>
+        </div>    
+
+        <div id="formStaff">
+            <form name="teststaff" action="">
+                <p>StaffID:</p>
+                <input type="text" id="StaffID" required/>
+
+                <p>First Name:</p>
+                <input type="text" id="Staff_First_name" required/>
+
+                <p>Last Name:</p>
+                <input type="text" id="Staff_Last_name" />
+
+                <p>Gender:</p>
+                <input type="radio" id="male" name="Staff_gender" value="male">male
+                <input type="radio" id="female" name="Staff_gender" value="female" />female
+                <input type="radio" id="diverse" name="Staff_gender" value="diverse" />diverse
+
+                <p>Departament:</p>
+                <select name="Staff_dropdown">
+                    <option value="D1">Department1</option>
+                    <option value="D2">Department2</option>
+                    <option value="D3">Department3</option>
+                    <option value="D4">Department4</option>
+                </select>
+
+                <p>Email ID:</p>
+                <input type="text" id="Staff_Email_ID" required/>
+
+                <div id="formSubmit">
+                <input type="submit" onClick="return addStaff();" value="Submit">
+                </div>
+            </form>
+    </body>
+
+
+    <!--JAVASCRIPT PART-->
+    <script language="javascript">
+
+        function redirect(){
+            window.open("AddStudent.html");
+        }
+
+        //Toggle and untoggle to show Student and Staff Elements
+        const targetDiv = document.getElementById("divStudentButtons");
+        const button = document.getElementById("toggleStudent");
+        button.onclick = function() {
+            if(targetDiv.style.display !== "none"){
+                targetDiv.style.display = "none";
+            }
+            else{
+                targetDiv.style.display = "block";
+            }
+        }
+
+        const sectargetDiv = document.getElementById("divStaffButtons");
+        const secbutton = document.getElementById("toggleStaff");
+        secbutton.onclick = function() {
+            if(sectargetDiv.style.display !== "none"){
+                sectargetDiv.style.display = "none";
+            }
+            else{
+                sectargetDiv.style.display = "block";
+            }
+        }
+
+        const thrtargetDiv = document.getElementById("formStudent");
+        const thrbutton = document.getElementById("addStudentButton");
+        thrbutton.onclick = function() {
+            if(thrtargetDiv.style.display !== "none"){
+                thrtargetDiv.style.display = "none";
+            }
+            else{
+                thrtargetDiv.style.display = "block";
+            }
+        }
+
+        const fourthtargetDiv = document.getElementById("formStaff");
+        const fourthbutton = document.getElementById("addStaffButton");
+        fourthbutton.onclick = function() {
+            if(fourthtargetDiv.style.display !== "none"){
+                fourthtargetDiv.style.display = "none";
+            }
+            else{
+                fourthtargetDiv.style.display = "block";
+            }
+        }
+
+
+        //AddStudent && AddStaff dont work!
+       /* function addStudent(){
+            let btnAdd = document.getElementById('Student_Button');
+            let table = document.querySelector('Students');
+
+            let idInput = document.querySelector('#StudentID');
+            let fNameInput = document.querySelector('#Student_First_name');
+            let lNameInput = document.querySelector('#Student_Last_name');
+            let dobInput = document.querySelector('#Student_DOB');
+
+            let emailInput = document.querySelector('#Student_Email_ID');
+            let joinInput = document.querySelector('#Student_Join_Day');
+           
+            btnAdd.addEventListener('click', () =>{
+                let id = idInput.value
+                let fname = fNameInput.value
+                let lname = lNameInput.value
+                let dob = dobInput.value
+                let email = emailInput.value
+                let join = joinInput.value
+
+                let template = `
+                                <tr>
+                                    <td>${id}</td>
+                                    <td>${fname}</td>
+                                    <td>${lname}</td>
+                                    <td>${dob}</td>
+                                    <td>${email}</td>
+                                    <td>${join}</td>
+                                </tr>`;
+
+                table.innerHTML += template;
+            });
+        }
+
+        function addStaff(){
+            var table = document.getElementById("Staff");
+            var row = table.insertRow(1);
+
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+            var cell7 = row.insertCell(6);
+
+            cell1.innerHTML = document.getElementsByID("StaffID").value;
+            cell2.innerHTML = document.getElementsByID("Staff_First_name").value;
+            cell3.innerHTML = document.getElementsByID("Staff_Last_name").value;
+            cell4.innerHTML = document.getElementsByID("Staff_DOB").value;
+            cell5.innerHTML = document.getElementsByID("Staff_gender").value;
+            cell6.innerHTML = document.getElementsByID("Staff_dropdown").value;
+            cell7.innerHTML = document.getElementsByID("Staff_Email_ID").value;
+            return false;
+        }*/
+    </script>
+
+</html>
